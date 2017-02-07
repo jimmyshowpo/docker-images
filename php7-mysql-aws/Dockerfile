@@ -31,7 +31,7 @@ RUN pecl install xdebug \
 && echo "xdebug.remote_port=9001" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 # Install Redis
-RUN pecl install -o -f redis-2.2.8 \
+RUN pecl install -o -f redis-3.1.1 \
 && rm -rf /tmp/pear \
 && docker-php-ext-enable redis
 

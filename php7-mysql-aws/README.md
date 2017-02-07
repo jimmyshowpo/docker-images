@@ -1,6 +1,6 @@
-# Docker PHP 5.6 Cli with MySQL Server 5.6
+# Docker PHP 7 Cli with MySQL Server 5.6
 
-A Docker image with PHP 5.6 Cli and MySQL Server 5.6. The main purpose is to be create an environment for Bitbucket Pipelines where it is possible to run PHP and have the MySQL for running unit tests with migration. 
+A Docker image with PHP 7 Cli and MySQL Server 5.6. The main purpose is to be create an environment for Bitbucket Pipelines where it is possible to run PHP and have the MySQL for running unit tests with migration. 
 
 This package contains:
 
@@ -8,6 +8,8 @@ This package contains:
 - MySQL Server 5.6
 - PHPUnit 4.7
 - ByJG Migrate
+- Python/Pip
+- AWS CLI
 
 # Build
 

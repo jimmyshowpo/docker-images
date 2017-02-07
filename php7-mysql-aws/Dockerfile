@@ -75,6 +75,11 @@ RUN apt-get -y install python-pip
 # Install AWS CLI
 RUN pip install awscli
 
+# Install Node/NPM/Coffeescript and Grunt
+RUN apt-get -y install nodejs
+RUN npm install -g coffee-script
+RUN npm install -g grunt-cli
+
 # Install Wordpress CLI
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar

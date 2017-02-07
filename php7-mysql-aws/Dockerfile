@@ -80,6 +80,9 @@ RUN apt-get -y install nodejs npm
 RUN npm install -g coffee-script
 RUN npm install -g grunt-cli
 
+# Symlink node to nodejs as most things are expecting this name
+RUN ln -s "$(which nodejs)" /usr/local/bin/node
+
 # Install Wordpress CLI
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar

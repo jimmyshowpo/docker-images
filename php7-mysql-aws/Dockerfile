@@ -35,11 +35,6 @@ RUN pecl install -o -f redis-3.1.1 \
 && rm -rf /tmp/pear \
 && docker-php-ext-enable redis
 
-# Install memcached
-RUN apt-get install -y libmemcached-dev \
-&& pecl install memcached \
-&& docker-php-ext-enable memcached
-
 # Install Xsl
 RUN apt-get install libxslt1.1 libxslt1-dev \
 && docker-php-ext-install xsl

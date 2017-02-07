@@ -76,7 +76,7 @@ RUN apt-get -y install python-pip
 RUN pip install awscli
 
 # Install Node/NPM/Coffeescript and Grunt
-RUN apt-get -y install nodejs
+RUN apt-get -y install nodejs npm
 RUN npm install -g coffee-script
 RUN npm install -g grunt-cli
 

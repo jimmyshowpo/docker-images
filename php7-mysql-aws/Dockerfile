@@ -70,7 +70,7 @@ RUN echo 'mysql-server-5.5 mysql-server/root_password_again password password' |
 RUN apt-get install -y mysql-server-5.5 
 
 # Install Python-Pip
-RUN apt-get install python-pip
+RUN apt-get -y install python-pip
 
 # Install AWS CLI
 RUN pip install awscli

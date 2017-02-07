@@ -1,4 +1,4 @@
-# ByJG Docker Image Projects
+# Docker Images
 
 Several Docker Image Projects 
 

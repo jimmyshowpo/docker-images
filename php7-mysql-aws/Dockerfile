@@ -1,6 +1,6 @@
-FROM php:7
+FROM php:5
 
-MAINTAINER James Beattie
+MAINTAINER Joao Gilberto Magalhaes
 
 # Install Composer Dependencies
 RUN apt-get -y update \
@@ -17,7 +17,7 @@ RUN apt-get install -y libfreetype6-dev libgd-dev \
 && docker-php-ext-configure gd --with-freetype-dir=/usr \
 && docker-php-ext-install gd exif
 
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+RUN docker-php-ext-install mysql mysqli pdo pdo_mysql
 
 RUN apt-get install -y libmcrypt-dev \
 && docker-php-ext-install mcrypt
@@ -31,18 +31,14 @@ RUN pecl install xdebug \
 && echo "xdebug.remote_port=9001" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 # Install Redis
-RUN pecl install -o -f redis-3.1.1 \
+RUN pecl install -o -f redis-2.2.8 \
 && rm -rf /tmp/pear \
 && docker-php-ext-enable redis
-
-# Install memcached
-RUN apt-get install -y libmemcached-dev \
-&& pecl install memcached \
-&& docker-php-ext-enable memcached
 
 # Install Xsl
 RUN apt-get install libxslt1.1 libxslt1-dev \
 && docker-php-ext-install xsl
+
 
 # Install Composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
@@ -69,25 +65,7 @@ RUN COMPOSER_HOME="/opt/.composer" composer global require "squizlabs/php_codesn
 RUN COMPOSER_HOME=/opt/.composer composer global require "phpmd/phpmd:@stable" \
 && ln -s /opt/.composer/vendor/bin/phpmd /usr/local/bin/
 
-# Install MySQL
-RUN echo 'mysql-server-5.5 mysql-server/root_password password password' | debconf-set-selections
-RUN echo 'mysql-server-5.5 mysql-server/root_password_again password password' |debconf-set-selections
-RUN apt-get install -y mysql-server-5.5 
-
-# Install Python-Pip
-RUN apt-get install python-pip
-
-# Install AWS CLI
-RUN pip install awscli
-
-# Install Wordpress CLI
-RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-RUN chmod +x wp-cli.phar
-RUN mv wp-cli.phar /usr/local/bin/wp
-
-# Set Tar compression to maximum
-RUN export GZIP=-9
-
 # Clear all unnecessary files
 RUN apt-get autoremove -y \
 && apt-get clean all
+

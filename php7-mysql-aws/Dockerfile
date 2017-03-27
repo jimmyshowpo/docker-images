@@ -69,8 +69,9 @@ RUN echo 'mysql-server-5.5 mysql-server/root_password password password' | debco
 RUN echo 'mysql-server-5.5 mysql-server/root_password_again password password' |debconf-set-selections
 RUN apt-get install -y mysql-server-5.5 
 
-# Install Python-Pip
-RUN apt-get -y install python-pip
+# Install Python-Pip, Ruby and Sass
+RUN apt-get -y install python-pip ruby
+RUN gem install sass
 
 # Install AWS CLI
 RUN pip install awscli

@@ -8,7 +8,8 @@ RUN apt-get -y update \
 
 # Valuable Extensions
 RUN apt-get install -y libicu-dev \
-&& docker-php-ext-install intl
+&& docker-php-ext-install intl \
+&& docker-php-ext-install zip
 
 RUN apt-get install -y libxml2-dev \
 && docker-php-ext-install dom
@@ -29,9 +30,6 @@ RUN pecl install xdebug \
 && echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
 && echo "xdebug.remote_connect_back=on" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
 && echo "xdebug.remote_port=9001" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-
-# Install zip extension
-RUN pecl install zip
 
 # Install Redis
 RUN pecl install -o -f redis-3.1.1 \

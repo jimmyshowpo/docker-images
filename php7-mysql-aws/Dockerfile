@@ -77,6 +77,9 @@ RUN gem install sass
 # Install AWS CLI
 RUN pip install awscli
 
+# Install Bitbucket CLI
+RUN pip install pybitbucket
+
 # Install Node/NPM/Coffeescript and Grunt
 RUN apt-get -y install nodejs npm
 RUN npm install -g coffee-script

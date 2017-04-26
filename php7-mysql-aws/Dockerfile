@@ -77,8 +77,9 @@ RUN gem install sass
 # Install AWS CLI
 RUN pip install awscli
 
-# Install Bitbucket CLI
+# Install Bitbucket/Snippet CLI tools
 RUN pip install pybitbucket
+RUN pip install git+https://bitbucket.org/atlassian/snippet.git
 
 # Install Node/NPM/Coffeescript and Grunt
 RUN apt-get -y install nodejs npm

@@ -71,7 +71,7 @@ RUN echo 'mysql-server-5.5 mysql-server/root_password_again password password' |
 RUN apt-get install -y mysql-server-5.5 
 
 # Install Python-Pip, Ruby and Sass
-RUN apt-get -y install ruby wget
+RUN apt-get -y install ruby wget python
 RUN wget https://bootstrap.pypa.io/get-pip.py
 RUN python get-pip.py
 RUN gem install sass

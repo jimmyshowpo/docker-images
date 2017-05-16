@@ -47,7 +47,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 && mv composer.phar /usr/local/bin/composer
 
 # Install PHPUnit
-RUN COMPOSER_HOME="/opt/.composer" composer global require "phpunit/phpunit=4.7.*" \
+RUN COMPOSER_HOME="/opt/.composer" composer global require "phpunit/phpunit=6.1.*" \
 && ln -s /opt/.composer/vendor/bin/phpunit /usr/local/bin/
 
 # Install Migration ByJG

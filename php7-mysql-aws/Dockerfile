@@ -1,4 +1,4 @@
-FROM php:7.0
+FROM php:7.2
 
 MAINTAINER James Beattie
 
@@ -65,11 +65,6 @@ RUN COMPOSER_HOME="/opt/.composer" composer global require "squizlabs/php_codesn
 RUN COMPOSER_HOME=/opt/.composer composer global require "phpmd/phpmd:@stable" \
 && ln -s /opt/.composer/vendor/bin/phpmd /usr/local/bin/
 
-# Install MySQL
-RUN echo 'mysql-server-5.5 mysql-server/root_password password password' | debconf-set-selections
-RUN echo 'mysql-server-5.5 mysql-server/root_password_again password password' |debconf-set-selections
-RUN apt-get install -y mysql-server-5.5 
-
 # Install Python-Pip, Ruby and Sass
 RUN apt-get -y install ruby wget python
 RUN wget https://bootstrap.pypa.io/get-pip.py
@@ -90,11 +85,6 @@ RUN npm install -g grunt-cli
 
 # Symlink node to nodejs as most things are expecting this name
 RUN ln -s "$(which nodejs)" /usr/local/bin/node
-
-# Install Wordpress CLI
-RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-RUN chmod +x wp-cli.phar
-RUN mv wp-cli.phar /usr/local/bin/wp
 
 # Set Tar compression to maximum
 RUN export GZIP=-9

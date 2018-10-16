@@ -19,9 +19,6 @@ RUN apt-get install -y libfreetype6-dev libgd-dev \
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-RUN apt-get install -y libmcrypt-dev \
-&& docker-php-ext-install mcrypt
-
 # Install XDebug
 RUN pecl install xdebug \
 && docker-php-ext-enable xdebug \

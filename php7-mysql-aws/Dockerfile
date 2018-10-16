@@ -76,6 +76,13 @@ RUN pip install git+https://bitbucket.org/atlassian/snippet.git
 # Set Tar compression to maximum
 RUN export GZIP=-9
 
+# Install laravel sprak installer
+RUN mkdir /var/www/spark && \
+    cd /var/www/spark && \
+    git clone https://github.com/laravel/spark-installer.git && \
+    cd /var/www/spark/spark-installer && \
+    composer install -vvv
+
 # Clear all unnecessary files
 RUN apt-get autoremove -y \
 && apt-get clean all

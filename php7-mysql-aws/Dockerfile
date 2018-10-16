@@ -8,8 +8,7 @@ RUN apt-get -y update \
 
 # Valuable Extensions
 RUN apt-get install -y libicu-dev \
-&& docker-php-ext-install intl \
-&& docker-php-ext-install zip
+&& docker-php-ext-install intl
 
 RUN apt-get install -y libxml2-dev \
 && docker-php-ext-install dom

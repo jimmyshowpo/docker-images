@@ -4,7 +4,7 @@ MAINTAINER James Beattie
 
 # Install Composer Dependencies
 RUN apt-get -y update \
-&& apt-get -y install git unzip zlib1g-dev tofrodos yui-compressor
+&& apt-get -y install git unzip
 
 # Valuable Extensions
 RUN apt-get install -y libicu-dev \

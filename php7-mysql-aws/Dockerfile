@@ -4,7 +4,7 @@ MAINTAINER James Beattie
 
 # Install Composer Dependencies
 RUN apt-get -y update \
-&& apt-get -y install git unzip
+&& apt-get -y install git unzip zlib1g-dev
 
 # Valuable Extensions
 RUN apt-get install -y libicu-dev \

@@ -65,7 +65,6 @@ RUN COMPOSER_HOME=/opt/.composer composer global require "phpmd/phpmd:@stable" \
 RUN apt-get -y install ruby wget python
 RUN wget https://bootstrap.pypa.io/get-pip.py
 RUN python get-pip.py
-RUN gem install sass
 
 # Install AWS CLI
 RUN pip install awscli

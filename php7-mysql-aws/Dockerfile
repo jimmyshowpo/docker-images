@@ -73,14 +73,6 @@ RUN pip install awscli
 RUN pip install pybitbucket
 RUN pip install git+https://bitbucket.org/atlassian/snippet.git
 
-# Install Node/NPM/Coffeescript and Grunt
-RUN apt-get -y install nodejs npm
-RUN npm install -g coffee-script
-RUN npm install -g grunt-cli
-
-# Symlink node to nodejs as most things are expecting this name
-RUN ln -s "$(which nodejs)" /usr/local/bin/node
-
 # Set Tar compression to maximum
 RUN export GZIP=-9
 

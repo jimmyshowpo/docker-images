@@ -77,10 +77,10 @@ RUN pip install git+https://bitbucket.org/atlassian/snippet.git
 RUN export GZIP=-9
 
 # Install laravel sprak installer
-RUN mkdir /var/www/spark && \
-    cd /var/www/spark && \
+RUN mkdir /var/spark && \
+    cd /var/spark && \
     git clone https://github.com/laravel/spark-installer.git && \
-    cd /var/www/spark/spark-installer && \
+    cd /var/spark/spark-installer && \
     composer install -vvv
 
 # Clear all unnecessary files
